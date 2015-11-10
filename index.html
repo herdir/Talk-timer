@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+
+<head>
+<script>
+window.open("bigpage.html","fs","fullscreen=yes")
+</script> 
+    <meta charset="utf-8">
+    <title>Talk Timer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="styles/main-108f0e82.css">
+    <script src="scripts/main-79f7179d.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div id="getStarted" class="row">
+        <div style="height: 100%;" class="col-xs-12">
+          <div id="middle-row" class="row">
+            <div class="middle-row Set-timer">
+              <h1 class="Set-timer__title"><img src="images/logo.png" class="Set-timer__logo"><strong>  Talk Timer</strong></h1>
+              <form onsubmit="return false;" class="form-inline">
+                <div class="Set-timer__options">
+                  <select id="timeSelect" class="form-control form-control--dropdown Set-timer__select">
+					<option value="2400000">40 Minutes</option>
+                    <option value="1200000">20 Minutes</option>
+                    <option value="1140000">19 Minutes</option>
+                    <option selected value="1080000">18 Minutes</option>
+                    <option value="1020000">17 Minutes</option>
+                    <option value="960000">16 Minutes</option>
+                    <option value="900000">15 Minutes</option>
+                    <option value="840000">14 Minutes</option>
+                    <option value="780000">13 Minutes</option>
+                    <option value="720000">12 Minutes</option>
+                    <option value="660000">11 Minutes</option>
+                    <option value="600000">10 Minutes</option>
+                    <option value="540000">9 Minutes</option>
+                    <option value="480000">8 Minutes</option>
+                    <option value="420000">7 Minutes</option>
+                    <option value="360000">6 Minutes</option>
+                    <option value="300000">5 Minutes</option>
+                    <option value="240000">4 Minutes</option>
+                    <option value="180000">3 Minutes</option>
+                    <option value="120000">2 Minutes</option>
+                    <option value="60000">1 Minute</option>
+                    <option value="0">0 Minutes</option>
+                  </select>
+                  <select id="secSelect" class="form-control form-control--dropdown Set-timer__select">
+                    <option value="0"> 0 secondes</option>
+                    <option value="30000"> 30 secondes</option>
+                  </select>
+				  
+                  <select id="howSelect" style="display:none;>
+                   <!-- <option value="on-stage">  Démarrer sur scène</option>--> 
+                    <option value="now">Démarrer</option>
+                   <!-- <option value="ten-secondes"> Démarrer dans 10 secondes</option>-->
+                  </select>
+                </div>
+                <button id="startDropdownButton" class="btn btn-default button Set-timer__start">
+                  Go
+                  
+                </button>
+               
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="counter-wrapper" class="row">
+        <div class="col-xs-12">
+          <div id="overtime">
+            &nbsp;
+            
+          </div>
+          <div id="timer" class="timer-undertime">
+            <div id="counter-container"></div>
+          </div>
+        </div>
+      </div>
+      <div id="dot-wrapper" class="row">
+        <div id="dots" class="row dotStart">
+          <div class="dotblock">
+            <div id="one" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="two" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="three" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="four" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="five" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="six" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="seven" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="eight" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="nine" class="dot"></div>
+          </div>
+          <div class="dotblock">
+            <div id="ten" class="dot"></div>
+          </div>
+        </div>
+        <div id="pause" class="fade-object">
+          <div class="pausedot"><img src="images/pause.svg" id="pause-icon"></div>
+        </div>
+      </div>
+      <div id="pauseModal" aria-hidden="true" class="modal fade">
+        <div class="modalOptions">
+          <div class="row">
+            <div class="col-xs-2 modaldot col-xs-offset-3">
+              <div id="resume" class="helpdot"><img src="images/play.svg" id="modal-play-icon" class="svg">
+                <p>Continuer</p>
+              </div>
+            </div>
+            <div class="col-xs-2 modaldot">
+              <div id="restart" class="helpdot"><img src="images/start-over.svg" id="modal-play-icon" class="svg">
+                <p>Redémarrer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="startPauseModal" aria-hidden="true" class="modal">
+        <div class="modalOptions">
+          <div class="row">
+            <div class="col-xs-2 modaldot col-xs-offset-5">
+              <div id="startPlay" class="helpdot"><img src="images/play.svg" id="modal-play-icon" class="svg">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="delayModal" aria-hidden="true" class="modal">
+        <div id="delay-countdown-holder" class="modalOptions">
+          <div class="counterSpot">Démarrer dans <div id="delayCounter">10</div></div>
+          <div class="cancelLink"><a onClick="$('#delayModal').modal('hide');">
+              Annuler
+              </a></div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      $(document).ready(function(){
+        countdown.initialize();
+      });
+      
+    </script>
+  </body>
+</html>
